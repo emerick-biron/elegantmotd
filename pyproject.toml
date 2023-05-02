@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "elegantmotd"
-version = "0.2.4"
+version = "0.2.5"
 authors = ["Emerick Biron <emerick.biron@gmail.com>"]
 readme = "README.md"
 description = "A visually appealing and informative Message of the Day (MOTD) generator for Linux systems."
