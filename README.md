@@ -11,28 +11,6 @@ usage, swap usage, temperature, network interfaces, CPU usage, and more.
 - Customizable display options.
 - Easy to use and integrate into your system.
 
-## Installation
-
-- Clone this repository:
-
-```bash
-git clone https://github.com/yourusername/elegantmotd.git
-cd elegantmotd
-```
-
-- Create a virtual environment and activate it:
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-- Install the required dependencies:
-
-```bash
-poetry build 
-```
-
 ## Usage
 
 To display the Message of the Day, run the following command:
