@@ -1,3 +1,4 @@
+import getpass
 import os
 import platform
 import re
@@ -58,7 +59,7 @@ def display(watch: bool) -> None:
         if watch:
             console.clear()
         console.print(f"💻 [blue bold]{distro} {codename} LTS (GNU/Linux {kernel} {architecture}) [/]💻")
-        console.print(f"[orange1 bold]{text2art(os.getlogin(), font='small')}[/]", end="")
+        console.print(f"[orange1 bold]{text2art(getpass.getuser(), font='small')}[/]", end="")
         padding = Padding(generate_table(), (0, 0, 1, 0))
         if watch:
             with Live(padding, refresh_per_second=1) as live:
