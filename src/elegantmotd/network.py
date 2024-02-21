@@ -1,6 +1,7 @@
+from socket import AF_INET
 from typing import Dict
 
-import netifaces
+import psutil
 from rich.console import RenderableType
 
 from .sysinfo import SysInfo
@@ -10,10 +11,11 @@ class Network(SysInfo):
     def _get_infos(self) -> Dict[RenderableType, RenderableType]:
         infos = {"Network": ""}
 
-        for intf in netifaces.interfaces():
+        addrs = psutil.net_if_addrs()
+        for intf, addr_list in addrs.items():
             if intf != "lo":
-                addr = netifaces.ifaddresses(intf).get(netifaces.AF_INET, [{}])[0].get("addr")
-                if addr:
-                    infos[f"  - {intf}"] = addr
+                for addr in addr_list:
+                    if addr.family == AF_INET:
+                        infos[f"  - {intf}"] = addr.address
 
         return infos
