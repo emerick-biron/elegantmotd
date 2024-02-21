@@ -1,6 +1,7 @@
 import os
 import platform
 import re
+import sys
 import time
 from datetime import datetime, timezone
 
@@ -89,3 +90,7 @@ def generate_table() -> Table:
     sysinfos = [Load(), Disk(), Memory(), Temperature(), Process(), LoggedInUsers(), Network(), CPU()]
     [table.add_row(f"{info}:", sysinfo.infos[info]) for sysinfo in sysinfos for info in sysinfo.infos]
     return table
+
+
+if __name__ == '__main__':
+    display(sys.argv[1:])
