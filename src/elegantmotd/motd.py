@@ -56,12 +56,10 @@ def display(watch: bool) -> None:
         kernel = get_kernel_info()
         architecture = get_architecture()
 
-        art_user = "\n".join(" " + line for line in text2art(getpass.getuser(), font='small').split("\n")[:-1])
-
         if watch:
             console.clear()
-        
-        art_user = '\n'.join(' ' + line for line in text2art(getpass.getuser(), font='small').split('\n'))
+
+        art_user = "\n".join(" " + line for line in text2art(getpass.getuser(), font='small').split("\n")[:-1])
         
         console.print(f"💻 [blue bold]{distro} {codename} LTS (GNU/Linux {kernel} {architecture}) [/]💻")
         console.print(f"[orange1 bold]{art_user}[/]")
