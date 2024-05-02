@@ -56,10 +56,12 @@ def display(watch: bool) -> None:
         kernel = get_kernel_info()
         architecture = get_architecture()
 
+        art_user = "\n".join(" " + line for line in text2art(getpass.getuser(), font='small').split("\n")[:-1])
+
         if watch:
             console.clear()
         console.print(f"💻 [blue bold]{distro} {codename} LTS (GNU/Linux {kernel} {architecture}) [/]💻")
-        console.print(f"[orange1 bold]{text2art(getpass.getuser(), font='small')}[/]", end="")
+        console.print(f"[orange1 bold]{art_user}[/]")
         padding = Padding(generate_table(), (0, 0, 1, 0))
         if watch:
             with Live(padding, refresh_per_second=1) as live:
@@ -80,7 +82,7 @@ def generate_table() -> Table:
         show_header=False,
         box=None,
         title_justify="left",
-        title=f"  System information as of {local_time.strftime('%a. %d %B %Y %H:%M:%S')} UTC+{utc_offset}\n",
+        title=f" System information as of {local_time.strftime('%a. %d %B %Y %H:%M:%S')} UTC+{utc_offset}\n",
         title_style=Style(color="white", italic=False, bold=True, ),
         expand=True,
         leading=1,
