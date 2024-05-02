@@ -4,8 +4,8 @@ from typing import Dict
 from rich.console import RenderableType
 from rich.progress import Progress, BarColumn, TaskProgressColumn, TextColumn
 
-from .constants import GB, GREEN, YELLOW, ORANGE, RED
-from .sysinfo import SysInfo
+from elegantmotd.constants import GB, GREEN, YELLOW, ORANGE, RED
+from elegantmotd.sysinfo import SysInfo
 
 
 class Disk(SysInfo):

@@ -14,14 +14,14 @@ from rich.padding import Padding
 from rich.style import Style
 from rich.table import Table
 
-from .cpu import CPU
-from .disk import Disk
-from .load import Load
-from .loggedinusers import LoggedInUsers
-from .memory import Memory
-from .network import Network
-from .process import Process
-from .temperature import Temperature
+from elegantmotd.cpu import CPU
+from elegantmotd.disk import Disk
+from elegantmotd.load import Load
+from elegantmotd.loggedinusers import LoggedInUsers
+from elegantmotd.memory import Memory
+from elegantmotd.network import Network
+from elegantmotd.process import Process
+from elegantmotd.temperature import Temperature
 
 
 def get_distro_info():

@@ -4,7 +4,7 @@ from typing import Dict
 import psutil
 from rich.console import RenderableType
 
-from .sysinfo import SysInfo
+from elegantmotd.sysinfo import SysInfo
 
 
 class Network(SysInfo):
