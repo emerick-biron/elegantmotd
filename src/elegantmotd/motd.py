@@ -60,6 +60,9 @@ def display(watch: bool) -> None:
 
         if watch:
             console.clear()
+        
+        art_user = '\n'.join(' ' + line for line in text2art(getpass.getuser(), font='small').split('\n'))
+        
         console.print(f"💻 [blue bold]{distro} {codename} LTS (GNU/Linux {kernel} {architecture}) [/]💻")
         console.print(f"[orange1 bold]{art_user}[/]")
         padding = Padding(generate_table(), (0, 0, 1, 0))
