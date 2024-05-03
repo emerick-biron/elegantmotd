@@ -4,8 +4,8 @@ import psutil
 from rich.console import RenderableType
 from rich.progress import Progress, BarColumn, TaskProgressColumn, TextColumn
 
-from elegantmotd.constants import GB, GREEN, YELLOW, ORANGE, RED
-from elegantmotd.sysinfo import SysInfo
+from .constants import GB, GREEN, YELLOW, ORANGE, RED
+from .sysinfo import SysInfo
 
 
 class Memory(SysInfo):

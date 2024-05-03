@@ -3,7 +3,7 @@ from typing import Dict
 
 from rich.console import RenderableType
 
-from elegantmotd.sysinfo import SysInfo
+from .sysinfo import SysInfo
 
 
 class LoggedInUsers(SysInfo):

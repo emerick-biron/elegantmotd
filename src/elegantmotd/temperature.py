@@ -4,8 +4,8 @@ import psutil
 from rich.console import RenderableType
 from rich.text import Text
 
-from elegantmotd.constants import GREEN, YELLOW, ORANGE, RED
-from elegantmotd.sysinfo import SysInfo
+from .constants import GREEN, YELLOW, ORANGE, RED
+from .sysinfo import SysInfo
 
 
 class Temperature(SysInfo):

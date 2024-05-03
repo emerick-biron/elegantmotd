@@ -4,8 +4,8 @@ import psutil
 from rich.console import RenderableType
 from rich.progress import Progress, BarColumn, TaskProgressColumn
 
-from elegantmotd.constants import GREEN, RED, ORANGE, YELLOW
-from elegantmotd.sysinfo import SysInfo
+from .constants import GREEN, RED, ORANGE, YELLOW
+from .sysinfo import SysInfo
 
 
 class CPU(SysInfo):
