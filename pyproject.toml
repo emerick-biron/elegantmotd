@@ -16,6 +16,7 @@ rich = "^13.3.4"
 psutil = "^5.9.5"
 art = "^5.9"
 rich-click = "^1.6.1"
+distro = "^1.9.0"
 
 [tool.poetry.scripts]
 elegantmotd="elegantmotd.motd:display"
