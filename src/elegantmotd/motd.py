@@ -26,7 +26,7 @@ from .temperature import Temperature
 
 
 def get_distro_info():
-    return f"{distro.id()} {distro.version()} {distro.codename()}"
+    return f"{distro.id().capitalize()} {distro.version()} {distro.codename()}"
 
 
 def get_kernel_info():
