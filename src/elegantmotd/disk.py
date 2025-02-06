@@ -27,6 +27,6 @@ class Disk(SysInfo):
         )
         progress.add_task("progress", total=100, completed=round(usage_percent))
 
-        infos = {"Usage of /": progress}
+        infos = {"💾 Usage of /": progress}
 
         return infos

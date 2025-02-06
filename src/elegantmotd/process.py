@@ -8,5 +8,5 @@ from .sysinfo import SysInfo
 
 class Process(SysInfo):
     def _get_infos(self) -> Dict[RenderableType, RenderableType]:
-        infos = {"Processes": str(len(os.listdir("/proc")))}
+        infos = {"🏗️  Processes": str(len(os.listdir("/proc")))}
         return infos

@@ -76,7 +76,7 @@ def generate_table() -> Table:
         box=None,
         title_justify="left",
         title=(
-            f" System information as of {local_time.strftime('%a. %d %B %Y %H:%M:%S')} "
+            f" 📊 System information as of {local_time.strftime('📅 %a. %d %B %Y 🕒 %H:%M:%S')} "
             f"UTC+{utc_offset}\n"
         ),
         title_style=Style(color="white", italic=False, bold=True, ),

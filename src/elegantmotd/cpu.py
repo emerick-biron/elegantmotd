@@ -22,5 +22,5 @@ class CPU(SysInfo):
             TaskProgressColumn()
         )
         progress.add_task("cpu_percent", total=100, completed=round(cpu_percent))
-        infos = {"CPU": progress}
+        infos = {"🚀 CPU": progress}
         return infos

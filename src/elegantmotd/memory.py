@@ -18,7 +18,7 @@ class Memory(SysInfo):
         swap_progress, swap_usage_percent = self.__get_process(swap_usage)
         swap_progress.add_task("swap_progress", total=100, completed=round(swap_usage_percent))
 
-        infos = {"Memory usage": memory_progress, "Swap usage": swap_progress}
+        infos = {"🧠 Memory usage": memory_progress, "🔄 Swap usage": swap_progress}
         return infos
 
     @staticmethod
