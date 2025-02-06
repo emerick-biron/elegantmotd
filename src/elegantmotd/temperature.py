@@ -16,7 +16,7 @@ class Temperature(SysInfo):
             shwtemps = temp_info["coretemp"]
             for shwtemp in shwtemps:
                 if "Package" in shwtemp.label:
-                    infos["Temperature"] = self.__get_format_temp(shwtemp)
+                    infos["🌡️  Temperature"] = self.__get_format_temp(shwtemp)
                 elif "Core" in shwtemp.label:
                     infos[f"    - {shwtemp.label}"] = self.__get_format_temp(shwtemp)
         else:
