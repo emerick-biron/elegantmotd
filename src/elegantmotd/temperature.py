@@ -9,18 +9,24 @@ from .sysinfo import SysInfo
 
 
 class Temperature(SysInfo):
+    CPU_SENSORS = {
+        "coretemp": ["Package", "Core"],
+        "k10temp": ["Tctl", "Tdie"]
+    }
+
     def _get_infos(self) -> Dict[RenderableType, RenderableType]:
         infos = {"🌡️  Temperature": ""}
         temp_info = psutil.sensors_temperatures()
-        if "coretemp" in temp_info:
-            shwtemps = temp_info["coretemp"]
-            for shwtemp in shwtemps:
-                if "Package" in shwtemp.label:
-                    infos["🌡️  Temperature"] = self.__get_format_temp(shwtemp)
-                elif "Core" in shwtemp.label:
-                    infos[f"    - {shwtemp.label}"] = self.__get_format_temp(shwtemp)
-        else:
-            infos["🌡️  Temperature"] = "Unable to get CPU temperature"
+
+        for sensor, labels in self.CPU_SENSORS.items():
+            if sensor in temp_info:
+                for shwtemp in temp_info[sensor]:
+                    if any(label in shwtemp.label for label in labels):
+                        key = "🌡️  Temperature" if shwtemp.label in labels[:1] else f"    - {shwtemp.label}"
+                        infos[key] = self.__get_format_temp(shwtemp)
+                return infos
+
+        infos["🌡️  Temperature"] = "Unable to get CPU temperature"
         return infos
 
     @staticmethod
