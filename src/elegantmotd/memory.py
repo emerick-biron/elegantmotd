@@ -4,21 +4,24 @@ import psutil
 from rich.console import RenderableType
 from rich.progress import Progress, BarColumn, TaskProgressColumn, TextColumn
 
+from . import themes
 from .constants import GB, GREEN, YELLOW, ORANGE, RED
 from .sysinfo import SysInfo
 
 
 class Memory(SysInfo):
     def _get_infos(self) -> Dict[RenderableType, RenderableType]:
+        memory_icon = themes.get_icon(self.theme, "memory")
         memory_usage = psutil.virtual_memory()
         memory_progress, memory_usage_percent = self.__get_process(memory_usage)
         memory_progress.add_task("memory_progress", total=100, completed=round(memory_usage_percent))
 
+        swap_icon = themes.get_icon(self.theme, "swap")
         swap_usage = psutil.swap_memory()
         swap_progress, swap_usage_percent = self.__get_process(swap_usage)
         swap_progress.add_task("swap_progress", total=100, completed=round(swap_usage_percent))
 
-        infos = {"🧠 Memory usage": memory_progress, "🔄 Swap usage": swap_progress}
+        infos = {f"{memory_icon}Memory usage": memory_progress, f"{swap_icon}Swap usage": swap_progress}
         return infos
 
     @staticmethod

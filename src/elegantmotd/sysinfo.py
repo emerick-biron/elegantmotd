@@ -5,7 +5,8 @@ from rich.console import RenderableType
 
 
 class SysInfo(ABC):
-    def __init__(self):
+    def __init__(self, theme: str):
+        self.theme = theme
         self.infos = self._get_infos()
 
     @abstractmethod

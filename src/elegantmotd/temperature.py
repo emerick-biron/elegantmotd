@@ -4,6 +4,7 @@ import psutil
 from rich.console import RenderableType
 from rich.text import Text
 
+from . import themes
 from .constants import GREEN, YELLOW, ORANGE, RED
 from .sysinfo import SysInfo
 
@@ -15,18 +16,21 @@ class Temperature(SysInfo):
     }
 
     def _get_infos(self) -> Dict[RenderableType, RenderableType]:
-        infos = {"🌡️  Temperature": ""}
+        temp_icon = themes.get_icon(self.theme, "temperature")
+        temp_sensor_icon = themes.get_icon(self.theme, "temp_sensor")
+        infos = {f"{temp_icon}Temperature": ""}
         temp_info = psutil.sensors_temperatures()
 
         for sensor, labels in self.CPU_SENSORS.items():
             if sensor in temp_info:
                 for shwtemp in temp_info[sensor]:
                     if any(label in shwtemp.label for label in labels):
-                        key = "🌡️  Temperature" if shwtemp.label in labels[:1] else f"    - {shwtemp.label}"
+                        key = f"{temp_icon}Temperature" if shwtemp.label in labels[
+                                                                            :1] else f"{temp_sensor_icon}{shwtemp.label}"
                         infos[key] = self.__get_format_temp(shwtemp)
                 return infos
 
-        infos["🌡️  Temperature"] = "Unable to get CPU temperature"
+        infos[f"{temp_icon}Temperature"] = "Unable to get CPU temperature"
         return infos
 
     @staticmethod

@@ -8,7 +8,7 @@ usage, swap usage, temperature, network interfaces, CPU usage, and more.
 
 - Rich, colorful text-based output.
 - Displays various system information.
-- Customizable display options.
+- Customizable visual theme.
 - Easy to use and integrate into your system.
 
 ## Usage
@@ -18,6 +18,19 @@ To display the Message of the Day, run the following command:
 ```bash
 elegantmotd
 ```
+
+You can choose a visual theme using the `--theme` (or `-t`) option:
+
+```bash
+elegantmotd --theme emoji
+elegantmotd -t nerdfont
+```
+
+### Available themes
+
+- `none` (default): no icons, clean plain text (TTY-safe)
+- `emoji`: colorful emojis for graphical environments
+- `nerdfont`: icon-rich display using [Nerd Fonts](https://www.nerdfonts.com)
 
 ## Live Updates
 
