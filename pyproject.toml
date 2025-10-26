@@ -1,26 +1,36 @@
-[tool.poetry]
+[project]
 name = "elegantmotd"
 version = "1.0.0"
-authors = ["emerick-biron"]
-readme = "README.md"
 description = "A visually appealing and informative Message of the Day (MOTD) generator for Linux systems."
-homepage = "https://github.com/emerick-biron/elegantmotd"
-repository = "https://github.com/emerick-biron/elegantmotd.git"
-keywords = ["motd", "system", "information", "console", "dashboard"]
+authors = [{ name = "emerick-biron" }]
+requires-python = ">=3.12"
+readme = "README.md"
 license = "MIT"
-packages = [{ include = "elegantmotd", from = "src" }]
+keywords = ["motd", "system", "information", "console", "dashboard"]
+dependencies = [
+    "rich>=13.9.4,<14",
+    "psutil>=6.1.1,<7",
+    "art~=6.4",
+    "rich-click>=1.8.5,<2",
+    "distro>=1.9.0,<2",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-rich = "^13.9.4"
-psutil = "^6.1.1"
-art = "^6.4"
-rich-click = "^1.8.5"
-distro = "^1.9.0"
+[project.urls]
+Homepage = "https://github.com/emerick-biron/elegantmotd"
+Repository = "https://github.com/emerick-biron/elegantmotd.git"
 
-[tool.poetry.scripts]
+[project.scripts]
 elegantmotd = "elegantmotd.motd:display"
 
+[tool.hatch.build.targets.sdist]
+include = ["src/elegantmotd"]
+
+[tool.hatch.build.targets.wheel]
+include = ["src/elegantmotd"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/elegantmotd" = "elegantmotd"
+
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
