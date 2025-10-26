@@ -1,6 +1,6 @@
 [project]
 name = "elegantmotd"
-version = "1.0.0"
+version = "1.0.1"
 description = "A visually appealing and informative Message of the Day (MOTD) generator for Linux systems."
 authors = [{ name = "emerick-biron" }]
 requires-python = ">=3.12"
